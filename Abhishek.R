@@ -65,6 +65,6 @@ ggplot(data = filter2, aes(x = Track, y = Energy, colour = Energy, group = 1)) +
 
 #histogram
 s<-ggplot(data=filter1,aes(x=Views))
-s+geom_histogram(binwidth = 10)
-s+geom_histogram(binwidth = 10,aes(fill="Views"))
+s+geom_histogram(binwidth = 100000000)
+s+geom_histogram(binwidth = 100000000,aes(fill="Views"))
 

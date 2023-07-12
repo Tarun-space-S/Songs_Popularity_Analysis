@@ -69,6 +69,6 @@ s+geom_histogram(binwidth = 100000000)
 s+geom_histogram(binwidth = 100000000,aes(fill="Views"))
 
 s+geom_density()
-s+geom_density(aes(fill='Views))
+s+geom_density(aes(fill="Views"))
 s+geom_boxplot()
 

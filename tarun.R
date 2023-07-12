@@ -6,3 +6,5 @@ str(data)
 library(ggplot2)
 ggplot(data,aes(x=Loudness,y=Liveness))+geom_point()
 ggplot(data,aes(x=Loudness,y=Views))+geom_point()
+
+hello

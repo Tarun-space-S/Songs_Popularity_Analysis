@@ -28,9 +28,8 @@ head(songstats[, c("Track","Energy","Loudness")],n=10)
 #filtering
 #display all song tracks that crossed 1 billion views
 filter1<-songstats$Views>1000000000
-oneBsongs<-songstats[filter1,c("Track","Views")]
-oneBnum<-sum(complete.cases(oneBsongs[,"Views"]))
-oneBsongs[1:oneBnum,c("Track","Views")]
+songstats[filter1,c("Track","Views")]
+
 
 #display dataframe where income group is Low income
 filter2<-songstats$Artist=="Coldplay"

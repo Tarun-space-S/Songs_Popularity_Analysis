@@ -4,39 +4,37 @@ setwd("C:/Users/ujjwa/OneDrive/Desktop/r_files")
 songs<-read.csv('Songs_dataset.csv')
 View(songs)
 
-library(tidyverse)
-glimpse(songs)
-class(songs$Channel)
-#all distinct channels that music is being uploaded to in dataset
-unique(songs$Channel)
-
-
+#regress 3 variable energy,loudness and valence on views
 #linear reg model
-ols.lm<-lm(formula = Likes~Loudness,data=songs)
-ols.lm
+energy_views<-lm(formula=Views~Energy,data=songs)
+summary(energy_views)
 library(ggplot2)
-ggplot(songs,aes(x=Loudness,y=Likes))+geom_point()+geom_smooth(method="lm")
+ggplot(songs,aes(x=Views,y=Energy))+geom_point()
 #indicates users gravitate towards softer songs
-# we can do this for other columns as well
+loudness_views<-lm(formula=Views~Loudness,data=songs)
+summary(loudness_views)
+library(ggplot2)
+ggplot(songs,aes(x=Views,y=Loudness))+geom_point()
+
+valence_views<-lm(formula=Views~Valence,data=songs)
+summary(valence_views)
+library(ggplot2)
+ggplot(songs,aes(x=Views,y=Valence))+geom_point()
+
 
 
 #plotting residuals from our songs
-ols.res<-resid(ols.lm)
-ols.res
-plot(songs$Loudness,ols.res,ylab='Residuals',xlab='Danceability',main='Residual Plot')
-plot(fitted(ols.lm),ols.res)
+res<-resid(energy_views)
+res
+plot(fitted(energy_views),res)
 plot(predict(ols.lm),ols.res)
 
-qqnorm(ols.res)
-plot(density(ols.res))
-summary(songs)
+qqnorm(res)
+plot(density(res))
 
 #box plot
 #can use any column for x and y
-ggplot(songs,aes(x=as.factor(Danceability),y=Loudness))+geom_boxplot()
+ggplot(songs,aes(x=as.factor(Energy),y=Views))+geom_boxplot()
 
-#pair plots
-#overall condensed summ
-library("GGally")
-ggpairs(songs)
-#here we have to increase cardinality thresshold to take in the full dataset
+
+

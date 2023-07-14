@@ -1,4 +1,3 @@
-#commit
 getwd()
 setwd("C:/Users/ujjwa/OneDrive/Desktop/r_files")
 songs<-read.csv('spotify_songs.csv')
@@ -13,10 +12,16 @@ popularity_fit_loudness<-lm(formula = track_popularity ~loudness, data = songs)
 summary(popularity_fit_loudness)#hypo
 
 popularity_fit_genre <- lm(formula = track_popularity ~ playlist_genre,data =songs)
-ggplot(songs,aes(x=track_popularity,y=playlist_genre))+geom_boxplot()
+ggplot(songs,aes(x=track_popularity,y=playlist_genre))+geom_boxplot()#visualising
 summary(popularity_fit_genre)
 
-#using playlist genre#highest influence
+#Variable		p-value	 Adj R2
+#--------------------------
+#energy		 	<2e-16	 0.001
+#loudness	  <2e-16	 0.003
+#playlist   <2e-16   0.03
+
+#using playlist genre #highest influence
 subgenre_fit <- lm(track_popularity ~ playlist_subgenre, data = songs)
 summary(subgenre_fit)
 ggplot(songs,aes(x=track_popularity,y=playlist_subgenre))+geom_boxplot()#visualising

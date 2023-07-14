@@ -1,6 +1,7 @@
 #commit
 getwd()
-setwd("C:/Users/ujjwa/OneDrive/Desktop/r_files")
+#setwd("C:/Users/ujjwa/OneDrive/Desktop/r_files")
+setwd("D:/CODE/SUMMER/R_data_Analytics/data")
 songs<-read.csv('spotify_songs.csv')
 View(songs)
 

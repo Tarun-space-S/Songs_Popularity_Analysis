@@ -1,18 +1,18 @@
 getwd()# Get the working directory
 setwd("D:/CODE/SUMMER/R_data_Analytics/data")# Replace file path with the file path in your system
-songs<-read.csv('spotify_songs.csv')
-View(songs)
+data<-read.csv('data_dataset.csv')
+View(data)
 
 
 #LM of 4 variables energy,loudness,valence,playlist genre and subgenre on views or track popularity
-popularity_fit_energy <- lm(formula = track_popularity ~ energy,data =songs)
+popularity_fit_energy <- lm(formula = track_popularity ~ energy,data =data)
 summary(popularity_fit_energy)#hypothesis for each
 
-popularity_fit_loudness<-lm(formula = track_popularity ~loudness, data = songs)
+popularity_fit_loudness<-lm(formula = track_popularity ~loudness, data = data)
 summary(popularity_fit_loudness)#hypo
 
-popularity_fit_genre <- lm(formula = track_popularity ~ playlist_genre,data =songs)
-ggplot(songs,aes(x=track_popularity,y=playlist_genre))+geom_boxplot()#visualising
+popularity_fit_genre <- lm(formula = track_popularity ~ playlist_genre,data =data)
+ggplot(data,aes(x=track_popularity,y=playlist_genre))+geom_boxplot()#visualising
 summary(popularity_fit_genre)
 
 #Variable		p-value	 Adj R2
@@ -22,14 +22,14 @@ summary(popularity_fit_genre)
 #playlist   <2e-16   0.03
 
 #using playlist genre #highest influence
-subgenre_fit <- lm(track_popularity ~ playlist_subgenre, data = songs)
+subgenre_fit <- lm(track_popularity ~ playlist_subgenre, data = data)
 summary(subgenre_fit)
-ggplot(songs,aes(x=track_popularity,y=playlist_subgenre))+geom_boxplot()#visualising
+ggplot(data,aes(x=track_popularity,y=playlist_subgenre))+geom_boxplot()#visualising
 #post-teen pop results in highest popularity
 
 library(tidyverse)
 
-songs %>% 
+data %>% 
   filter(playlist_subgenre == 'post-teen pop') %>% 
   summary()
 

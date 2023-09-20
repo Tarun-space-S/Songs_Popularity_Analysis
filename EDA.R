@@ -1,6 +1,6 @@
 ?read.csv
-getwd()
-setwd("c:\\Users\\abhis\\OneDrive\\Documents\\summerCourse\\project\\")
+getwd()# Get the working directory
+setwd("D:/CODE/SUMMER/R_data_Analytics/data")# Replace file path with the file path in your system
 songstats<-read.csv("Songs_dataset.csv")
 View(songstats)
 

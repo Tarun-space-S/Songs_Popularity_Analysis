@@ -1,5 +1,5 @@
-getwd()
-setwd("C:/Users/ujjwa/OneDrive/Desktop/r_files")
+getwd()# Get the working directory
+setwd("D:/CODE/SUMMER/R_data_Analytics/data")# Replace file path with the file path in your system
 songs<-read.csv('spotify_songs.csv')
 View(songs)
 

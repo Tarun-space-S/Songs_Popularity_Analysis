@@ -1,4 +1,4 @@
-# Get the working directory
+getwd()# Get the working directory
 setwd("D:/CODE/SUMMER/R_data_Analytics/data")# Replace file path with the file path in your system
 data<-read.csv("Songs_dataset.csv")# Replace the name also
 summary(data)
